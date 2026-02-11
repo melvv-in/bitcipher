@@ -1,0 +1,6 @@
+Flask
+Flask-Cors
+Flask-Limiter
+cryptography
+gunicorn
+python-dotenv

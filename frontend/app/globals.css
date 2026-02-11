@@ -1,0 +1,230 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0e1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent-green: #2ea043;
+  --accent-blue: #58a6ff;
+}
+
+* {
+  @apply selection:bg-transparent selection:text-inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply min-h-screen font-display text-base antialiased;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+p {
+  line-height: 1.65;
+}
+
+a {
+  color: var(--accent-blue);
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: #79b8ff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f141b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 9999px;
+}
+
+@layer components {
+  .mobile-shell {
+    @apply relative mx-auto w-full max-w-xl px-4 pb-3 pt-2;
+  }
+
+  .glass-card {
+    @apply relative h-full overflow-hidden rounded-2xl border;
+    border-color: var(--border);
+    background: var(--panel);
+  }
+
+  .input-label {
+    @apply text-xs font-semibold uppercase tracking-[0.12em];
+    color: var(--muted);
+  }
+
+  .input-field {
+    @apply min-h-[46px] w-full rounded-xl border bg-[#0d1117] px-4 py-3 text-base transition duration-200;
+    border-color: var(--border);
+    color: var(--text);
+    @apply placeholder:text-[#8b949e] focus:outline-none focus:ring-2 focus:ring-[#58a6ff]/25;
+    @apply focus:border-[#58a6ff];
+  }
+
+  .textarea {
+    @apply input-field resize-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-semibold !border-0;
+    background: var(--accent-green);
+    color: #ffffff;
+    border: none !important;
+    @apply transition duration-150 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#58a6ff]/35;
+    @apply hover:bg-[#2c974b];
+    @apply disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[40px] items-center gap-2 rounded-lg border bg-[#0d1117] px-3 py-2 text-sm font-semibold transition duration-150;
+    border-color: var(--border);
+    color: var(--text);
+    @apply hover:bg-[#161b22] active:scale-[0.98];
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em];
+    border-color: var(--border);
+    color: var(--muted);
+    background: #0d1117;
+  }
+
+  .icon-wrap {
+    @apply inline-flex items-center justify-center leading-none;
+  }
+
+  .icon-wrap > svg {
+    @apply m-0 h-5 w-5;
+  }
+
+  .result-panel {
+    @apply rounded-xl border p-4;
+    border-color: var(--border);
+    background: #0d1117;
+  }
+
+.result-text {
+    @apply mt-2 max-h-44 overflow-auto whitespace-pre-wrap break-words font-mono text-sm text-slate-100;
+  }
+
+  .sticky-action {
+    @apply sticky bottom-3 z-20 rounded-2xl border p-2 backdrop-blur-xl;
+    border-color: var(--border);
+    background: rgba(14, 17, 23, 0.92);
+  }
+
+  .range-input {
+    @apply h-3 w-full cursor-pointer appearance-none rounded-full bg-[#30363d];
+  }
+
+  .range-input::-webkit-slider-thumb {
+    @apply h-5 w-5 appearance-none rounded-full border bg-[#58a6ff];
+    border-color: #79c0ff;
+  }
+
+  .range-input::-moz-range-thumb {
+    @apply h-5 w-5 rounded-full border bg-[#58a6ff];
+    border-color: #79c0ff;
+  }
+
+  .checkbox-control {
+    @apply h-5 w-5 appearance-none rounded-md border transition duration-150;
+    border-color: var(--border);
+    background: #0d1117;
+  }
+
+  .checkbox-control:checked {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    background-image: linear-gradient(45deg, transparent 48%, white 48%, white 58%, transparent 58%),
+      linear-gradient(-45deg, transparent 35%, white 35%, white 45%, transparent 45%);
+    background-size: 12px 12px, 12px 12px;
+    background-position: 3px 5px, 8px 5px;
+    background-repeat: no-repeat;
+  }
+
+  .checkbox-control:focus-visible {
+    @apply outline-none ring-2 ring-[#2ea043]/35;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 260ms ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
