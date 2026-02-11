@@ -228,3 +228,16 @@ a:hover {
 }
 
 
+
+.sticky-action {
+  position: sticky;
+  bottom: 0.75rem;
+  z-index: 20;
+  border-radius: 1rem;
+  border-width: 1px;
+  padding: 0.5rem;
+  --tw-backdrop-blur: blur(24px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    border-color: var(--border);
+    background: var(--accent-green);
+}

@@ -6,7 +6,7 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: "BitCipher | Security Tools",
+  title: "BitCipher",
   description: "Encrypt, decrypt, and generate strong passwords.",
   icons: {
     icon: "/favicon.svg",
