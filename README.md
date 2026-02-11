@@ -1,124 +1,165 @@
-# BitCipher
+BitCipher
 
-A modern encryption and password management tool built with Next.js and Flask.
+BitCipher is a minimal, privacy-focused web application for secure text encryption, decryption, and strong password generation, built with Next.js and Flask.
 
-## Features
+It demonstrates modern cryptographic practices, secure API design, and a mobile-first user experience suitable for cybersecurity learning and portfolio presentation.
 
-- **Encryption/Decryption**: Secure AES-256 encryption for your sensitive data
-- **Password Generator**: Create strong, customizable passwords
-- **Privacy Focused**: Client-side encryption with zero data storage on servers
+Live Deployment
+Service URL
+Frontend (Vercel) https://bitcipher.vercel.app
 
-## Tech Stack
+Backend API (Render) https://bitcipher.onrender.com
+Key Features
+Security
 
-### Frontend
+Password-based authenticated encryption
 
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS
-- Axios for API calls
+Zero plaintext storage on the server
 
-### Backend
+CSRF protection, rate limiting, and security headers
 
-- Python Flask
-- Flask-CORS
-- cryptography library
+Separation of frontend and backend services
 
-## Getting Started
+Functionality
 
-### Prerequisites
+Encrypt and decrypt sensitive text
 
-- Node.js 18+
-- Python 3.8+
-- npm or yarn
+Generate strong, customizable passwords
 
-### Installation
+Clipboard copy support
 
-1. Clone the repository:
+Responsive mobile-first interface
 
-```bash
-git clone https://github.com/yourusername/BitCipher.git
-cd BitCipher
-```
+Technology Stack
+Frontend
 
-2. Install frontend dependencies:
+Next.js 14
 
-```bash
+React 18
+
+TypeScript
+
+Tailwind CSS
+
+Axios
+
+Backend
+
+Python Flask
+
+Flask-Limiter
+
+Flask-CORS
+
+cryptography
+
+## Screenshots
+
+Application interface screenshots demonstrating the encryption, decryption, and password generation features.
+
+Local Development
+Prerequisites
+
+Node.js 18 or newer
+
+Python 3.8 or newer
+
+Clone Repository
+git clone https://github.com/melvv-in/bitcipher.git
+cd bitcipher
+
+Run Backend
+cd backend
+python -m venv venv
+venv\Scripts\activate # Windows
+pip install -r requirements.txt
+python run.py
+
+Backend available at:
+
+http://localhost:5000
+
+Run Frontend
 cd frontend
 npm install
-```
-
-3. Install backend dependencies:
-
-```bash
-cd ../backend
-pip install -r requirements.txt
-```
-
-### Running the Application
-
-#### Development Mode
-
-Start the backend server:
-
-```bash
-cd backend
-python run.py
-```
-
-In a separate terminal, start the frontend:
-
-```bash
-cd frontend
 npm run dev
-```
 
-The application will be available at:
+Frontend available at:
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+http://localhost:3000
 
-#### Production Mode
+Project Structure
+bitcipher/
+├── backend/ # Flask secure API
+├── frontend/ # Next.js application
+├── screenshots/ # Documentation images
+├── docker-compose.yml
+└── README.md
 
-Using Docker:
+API Endpoints
+Method Endpoint Description
+POST /api/encrypt Encrypt plaintext
+POST /api/decrypt Decrypt ciphertext
+POST /api/generate-password Generate secure password
+Security Design
 
-```bash
-docker-compose up --build
-```
+BitCipher follows a zero-knowledge-style architecture:
 
-## Project Structure
+Encryption keys are derived from user-provided passwords
 
-```
-BitCipher/
-├── frontend/           # Next.js frontend application
-│   ├── app/           # App router pages
-│   ├── components/    # React components
-│   ├── lib/          # Utility functions
-│   └── public/       # Static assets
-├── backend/           # Flask backend API
-│   ├── app/          # Application modules
-│   └── run.py        # Entry point
-└── docker-compose.yml # Docker configuration
-```
+The server does not store plaintext data
 
-## API Endpoints
+Defensive protections include:
 
-- `POST /api/encrypt` - Encrypt data
-- `POST /api/decrypt` - Decrypt data
-- `GET /api/generate-password` - Generate secure passwords
+CSRF validation
 
-## Security
+Rate limiting
 
-All encryption operations are performed client-side using the Web Crypto API. The backend only serves as an API gateway and does not store any encrypted data.
+Secure HTTP headers
 
-## Contributing
+This structure reflects secure development principles used in modern web security tools.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Deployment
+Frontend (Vercel)
 
-## License
+Set environment variable:
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+NEXT_PUBLIC_API_BASE=https://bitcipher.onrender.com/api
+
+Backend (Render)
+
+Root directory: backend
+
+Build command:
+
+pip install -r requirements.txt
+
+Start command:
+
+gunicorn run:app
+
+Environment variables:
+
+SECRET_KEY=your_secret_key
+CORS_ORIGINS=https://bitcipher.vercel.app
+
+Roadmap
+
+Optional client-side Web Crypto encryption
+
+Shareable encrypted message links
+
+Progressive Web App (PWA) support
+
+Security testing and audit documentation
+
+Enhanced password strength analysis
+
+Author
+
+Melwin
+Cybersecurity student focused on ethical hacking, penetration testing, and secure application development.
+
+License
+
+This project is released under the MIT License.
