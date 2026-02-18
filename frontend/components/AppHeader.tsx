@@ -20,7 +20,7 @@ export default function AppHeader({ activeTab, onTabChange }: AppHeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-[#0e1117]/90 backdrop-blur-sm">
       <div className="mx-auto w-full max-w-xl px-4 pb-3 pt-3">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-between">
           <Link
             href="/"
             className="inline-flex items-center gap-2 rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2ea043]/35"
@@ -34,7 +34,17 @@ export default function AppHeader({ activeTab, onTabChange }: AppHeaderProps) {
             />
             <p className="truncate text-xl font-semibold tracking-tight text-[#e6edf3]">BitCipher</p>
           </Link>
+          <a
+            href="https://drive.google.com/uc?export=download&id=1bQDjAeKIinUYPsdQlHBlpXIv5fPgoaA0
+"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[38px] items-center justify-center rounded-lg bg-[#58a6ff] px-4 text-sm font-semibold text-white visited:text-white hover:text-white active:text-white focus:text-white focus-visible:outline-none"
+          >
+            Get App
+          </a>
         </div>
+        
 
         <nav className="mt-5 grid grid-cols-3 gap-1 rounded-2xl border border-[#30363d] bg-[#161b22] p-1" role="tablist" aria-label="BitCipher tools">
           {tabs.map((tab) => (
