@@ -12,7 +12,7 @@ Backend API (Render) https://bitcipher.onrender.com
 
 Android APK
 Download BitCipher Android app:
-https://drive.google.com/uc?export=download&id=1Zt6HWMqdYUZQZJCbdhVWx7-SSFQPIeaf
+https://drive.google.com/file/d/1bQDjAeKIinUYPsdQlHBlpXIv5fPgoaA0/view?usp=sharing
 Key Features
 Security
 
