@@ -69,7 +69,7 @@ Node.js 18 or newer
 Python 3.8 or newer
 
 Clone Repository
-git clone https://github.com/melvv-in/bitcipher.git
+git clone https://github.com/bitglhacks/bitcipher.git
 cd bitcipher
 
 Run Backend
