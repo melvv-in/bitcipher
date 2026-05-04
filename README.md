@@ -105,6 +105,7 @@ Method Endpoint Description
 POST /api/encrypt Encrypt plaintext
 POST /api/decrypt Decrypt ciphertext
 POST /api/generate-password Generate secure password
+GET /api/warmup Warm the crypto path and report readiness
 Security Design
 
 BitCipher follows a zero-knowledge-style architecture:
@@ -140,12 +141,22 @@ pip install -r requirements.txt
 
 Start command:
 
-gunicorn run:app
+gunicorn run:app --workers 2 --threads 4 --timeout 30 --preload
 
 Environment variables:
 
 SECRET_KEY=your_secret_key
 CORS_ORIGINS=https://bitcipher.vercel.app
+SCRYPT_N=8192
+SCRYPT_R=8
+SCRYPT_P=1
+
+Recommended Render settings:
+
+Use the Python runtime with the backend directory as the root. Keep the backend
+as a web service, not a serverless function, so Gunicorn workers stay warm
+between requests. Add an uptime monitor that pings /api/warmup every 5 to 10
+minutes to reduce free-tier cold starts.
 
 Roadmap
 
